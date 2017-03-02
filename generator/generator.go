@@ -173,7 +173,7 @@ func (g *Generator) Generate(typeName string) {
 		"TypeName":    typeName,
 		"Options":     options,
 	})
-	fmt.Println(string(b.Bytes()))
+
 	out, err := format.Source(b.Bytes())
 	if err != nil {
 		fmt.Println(" format", err)

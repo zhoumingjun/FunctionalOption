@@ -14,7 +14,7 @@
 
 package main
 
-import "github.com/zhoumingjun/fog/cmd"
+import "github.com/zhoumingjun/gog/cmd"
 
 func main() {
 	cmd.Execute()

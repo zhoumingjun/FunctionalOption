@@ -16,12 +16,12 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
-	"github.com/zhoumingjun/fog/generator"
+	"github.com/zhoumingjun/gog/generator"
 )
 
-// genCmd represents the gen command
-var genCmd = &cobra.Command{
-	Use:   "gen",
+// foCmd represents the gen command
+var foCmd = &cobra.Command{
+	Use:   "fo",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -41,17 +41,17 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	RootCmd.AddCommand(genCmd)
+	RootCmd.AddCommand(foCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// genCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// foCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// genCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// foCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 
-	genCmd.Flags().StringP("type", "t", "", "type name")
+	foCmd.Flags().StringP("type", "t", "", "type name")
 }

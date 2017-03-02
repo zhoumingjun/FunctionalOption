@@ -1,6 +1,6 @@
 package example
 
-//go:generate fog gen -t example
+//go:generate gog fo -t example
 type example struct {
 	Name    string `option:"Name"`
 	Option1 string `option`
