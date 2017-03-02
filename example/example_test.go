@@ -5,6 +5,6 @@ import (
 )
 
 func TestExample(t *testing.T) {
-	xx := New(Name("haha"), Option1("ok"))
+	xx := New(Name("haha"), Age(11), Addr("some address"))
 	t.Log(xx)
 }

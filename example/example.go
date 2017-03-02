@@ -1,13 +1,8 @@
 package example
 
-//go:generate gog fo -t example
-type example struct {
+//go:generate gog fo -t Example
+type Example struct {
 	Name    string `option:"Name"`
-	Option1 string `option`
-	Option2 xx
-}
-
-type xx struct {
-	Name    string `option:"Name`
-	Option1 string `option:"Option1`
+	Age     int    `option`
+	Address string `option:"Addr"`
 }
