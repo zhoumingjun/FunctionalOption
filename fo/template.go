@@ -1,4 +1,4 @@
-package generator
+package fo
 
 const tmplOptions = `
 package {{.PackageName}}

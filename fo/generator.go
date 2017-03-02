@@ -1,4 +1,4 @@
-package generator
+package fo
 
 import (
 	"bytes"
@@ -159,7 +159,6 @@ func (g *Generator) Generate(typeName string) {
 		return
 	}
 
-	fmt.Println(options)
 	tmpl, err := template.New("model").Parse(tmplOptions)
 	if err != nil {
 		fmt.Println(err)

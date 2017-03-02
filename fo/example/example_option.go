@@ -1,6 +1,6 @@
 package example
 
-// Option is used to set options for the Example.
+// Option is used to set options for the logger.
 type Option interface {
 	apply(*Example)
 }
@@ -12,7 +12,6 @@ func (f optionFunc) apply(p *Example) {
 	f(p)
 }
 
-// the New funciton with options
 func New(options ...Option) *Example {
 
 	p := &Example{}
@@ -26,8 +25,6 @@ func (p *Example) WithOptions(opts ...Option) *Example {
 	}
 	return p
 }
-
-// options
 
 func Name(v string) Option {
 	return optionFunc(func(p *Example) {

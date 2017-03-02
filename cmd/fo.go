@@ -18,7 +18,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/zhoumingjun/gog/generator"
+	"github.com/zhoumingjun/gog/fo"
 )
 
 // foCmd represents the gen command
@@ -35,7 +35,7 @@ refer to https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis
 			return
 		}
 
-		var g generator.Generator
+		var g fo.Generator
 		g.ParsePackageDir(".")
 		g.Generate(t)
 
