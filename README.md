@@ -10,35 +10,36 @@ go get -u github.com/zhoumingjun/gog
 Sample user-defined struct:
 
 ```
-//go:generate gog fo -t example
-type example struct {
+//go:generate gog fo -t Example
+type Example struct {
 	Name    string `option:"Name"`
-	Option1 string `option`
-	Option2 xx
+	Age     int    `option`
+	Address string `option:"Addr"`
 }
 ```
 
 gog will generate functional options for the field marked with "option" 
 ```
-// Option is used to set options for the logger.
+// Option is used to set options for the Example.
 type Option interface {
-	apply(*example)
+	apply(*Example)
 }
 
 // optionFunc wraps a func so it satisfies the Option interface.
-type optionFunc func(*example)
+type optionFunc func(*Example)
 
-func (f optionFunc) apply(p *example) {
+func (f optionFunc) apply(p *Example) {
 	f(p)
 }
 
-func New(options ...Option) *example {
+// the New funciton with options
+func New(options ...Option) *Example {
 
-	p := &example{}
+	p := &Example{}
 	return p.WithOptions(options...)
 }
 
-func (p *example) WithOptions(opts ...Option) *example {
+func (p *Example) WithOptions(opts ...Option) *Example {
 
 	for _, opt := range opts {
 		opt.apply(p)
@@ -46,20 +47,29 @@ func (p *example) WithOptions(opts ...Option) *example {
 	return p
 }
 
+// options
+
 func Name(v string) Option {
-	return optionFunc(func(p *example) {
+	return optionFunc(func(p *Example) {
 		p.Name = v
 	})
 }
 
-func Option1(v string) Option {
-	return optionFunc(func(p *example) {
-		p.Option1 = v
+func Age(v int) Option {
+	return optionFunc(func(p *Example) {
+		p.Age = v
 	})
 }
+
+func Addr(v string) Option {
+	return optionFunc(func(p *Example) {
+		p.Address = v
+	})
+}
+
 ```
 
 Then create the instance in the style of functional options
 ```
-xx := New(Name("haha"), Option1("ok"))
+	xx := New(Name("haha"), Age(11), Addr("some address"))
 ```
